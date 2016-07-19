@@ -1,0 +1,10 @@
+{
+       "git":
+	{                
+		"repository_path":"/jasper/deployment",                
+                "datasource_folder_name":"Datasource",
+                "report_folder_name":"Report",
+                "input_controls_folder_name":"Inputcontrol",
+                "query_folder_name":"Query"
+	}
+}

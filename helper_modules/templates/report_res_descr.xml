@@ -1,0 +1,57 @@
+<resourceDescriptor name="{{report_name}}" wsType="reportUnit" uriString="{{repo_path}}" isNew="false">
+	<label><![CDATA[{{report_label}}]]></label>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value><![CDATA[com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.ReportUnit]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value><![CDATA[{{parent_folder}}]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value><![CDATA[0]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_SECURITY_PERMISSION_MASK">
+		<value><![CDATA[1]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_RU_ALWAYS_PROPMT_CONTROLS">
+		<value><![CDATA[true]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_RU_CONTROLS_LAYOUT">
+		<value><![CDATA[3]]></value>
+	</resourceProperty>
+		<resourceDescriptor wsType="datasource" isNew="false">
+		<resourceProperty name="PROP_REFERENCE_URI">
+			<value><![CDATA[{{report_datasource}}]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_IS_REFERENCE">
+			<value><![CDATA[true]]></value>
+		</resourceProperty>
+	</resourceDescriptor>
+	<resourceDescriptor name="{{report_name}}_jrxml" wsType="jrxml" uriString="{{report_files_path}}" isNew="false">
+		<label><![CDATA[{{report_name}}_jrxml]]></label>
+		<description><![CDATA[Main jrxml file for {{report_name}}]]></description>
+		<resourceProperty name="PROP_RESOURCE_TYPE">
+			<value><![CDATA[com.jaspersoft.jasperserver.api.metadata.common.domain.FileResource]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_PARENT_FOLDER">
+			<value><![CDATA[{{repo_path}}_files]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_VERSION">
+			<value><![CDATA[0]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_SECURITY_PERMISSION_MASK">
+			<value><![CDATA[1]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_IS_REFERENCE">
+			<value><![CDATA[false]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_HAS_DATA">
+			<value><![CDATA[true]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_ATTACHMENT_ID">
+			<value><![CDATA[attachment]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_RU_IS_MAIN_REPORT">
+			<value><![CDATA[true]]></value>
+		</resourceProperty>
+	</resourceDescriptor>
+</resourceDescriptor>

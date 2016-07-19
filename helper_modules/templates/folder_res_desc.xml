@@ -1,0 +1,16 @@
+<resourceDescriptor name="{{folder_name}}" wsType="folder" uriString="{{folder_path}}"
+                    isNew="false">
+  <label><![CDATA[{{folder_name}}]]></label>
+  <resourceProperty name="PROP_RESOURCE_TYPE">
+    <value>com.jaspersoft.jasperserver.api.metadata.common.domain.Folder</value>
+  </resourceProperty>
+  <resourceProperty name="PROP_PARENT_FOLDER">
+    <value><![CDATA[{{parent_folder}}]]></value>
+  </resourceProperty>
+  <resourceProperty name="PROP_VERSION">
+    <value>0</value>
+  </resourceProperty>
+  <resourceProperty name="PROP_HAS_DATA">
+    <value>false</value>
+  </resourceProperty>
+</resourceDescriptor>

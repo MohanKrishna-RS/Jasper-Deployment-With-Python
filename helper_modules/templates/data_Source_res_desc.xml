@@ -1,0 +1,27 @@
+<resourceDescriptor name="{{report_name}}" wsType="jdbc" uriString="{{repo_path}}" isNew="false">
+	<label><![CDATA[{{report_label}}]]></label>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value><![CDATA[com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.JdbcReportDataSource]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value><![CDATA[{{parent_folder}}]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value><![CDATA[1]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_SECURITY_PERMISSION_MASK">
+		<value><![CDATA[1]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_DRIVER_CLASS">
+		<value><![CDATA[{{driver}}]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_PASSWORD">
+		<value><![CDATA[{{connectionPassword}}]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_USERNAME">
+		<value><![CDATA[{{connectionUser}}]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_CONNECTION_URL">
+		<value><![CDATA[{{connectionUrl}}]]></value>
+	</resourceProperty>
+</resourceDescriptor>

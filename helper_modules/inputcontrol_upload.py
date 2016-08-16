@@ -29,6 +29,7 @@ def report_upload(repo_path, xml_filepath, jasper_url, username, password, datas
   version = (tree.findall('./version'))[0].text
   inputcontrol_type = (tree.findall('./type'))[0].text  
   report_label = (tree.findall('./label'))[0].text
+  mandatory = (tree.findall('./mandatory'))[0].text
   queryModel = ''
 
   #QueryModel for InputQuery and Query Resource
@@ -148,13 +149,51 @@ def report_upload(repo_path, xml_filepath, jasper_url, username, password, datas
 		</resourceProperty>
 	</resourceDescriptor>
                 '''
+  if tree.findall('./listOfValues'):
+    lov_Name = (tree.findall('./listOfValues/localResource/name'))[0].text
+    lov_Parent_Folder = repo_path + '_files'
+    lov_uri = repo_path + '_files/' + lov_Name
+    lov_label_Name = (tree.findall('./listOfValues/localResource/label'))[0].text
 
-
+    lov_value = ''
+    for path in tree.findall("./listOfValues/localResource/item"):
+      lov_value += '''
+                  <resourceProperty name="'''+path[1].text+'''">
+                      <value><![CDATA['''+path[0].text+''']]></value>
+                  </resourceProperty>\n'''
+    
+    queryModel = '''
+                <resourceDescriptor name="'''+lov_Name+'''" wsType="lov" uriString="'''+lov_uri+'''" isNew="false">
+		<label><![CDATA['''+lov_Name+''']]></label>
+		<resourceProperty name="PROP_RESOURCE_TYPE">
+			<value><![CDATA[com.jaspersoft.jasperserver.api.metadata.common.domain.ListOfValues]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_PARENT_FOLDER">
+			<value><![CDATA['''+lov_Parent_Folder+''']]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_VERSION">
+			<value><![CDATA[0]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_SECURITY_PERMISSION_MASK">
+			<value><![CDATA[1]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_HAS_DATA">
+			<value><![CDATA[false]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_IS_REFERENCE">
+			<value><![CDATA[false]]></value>
+		</resourceProperty>
+		<resourceProperty name="PROP_LOV">
+                            '''+lov_value+'''
+                  </resourceProperty>
+              </resourceDescriptor>
+                '''
   
   args ={
   'repo_path': repo_path.strip().rstrip('/'),
   'report_name': report_name,
   'parent_folder': parent_folder,
+  'mandatory':mandatory,
   
   'queryValueColumn' : queryValueColumn,
   'queryVisibleColumn' : queryVisibleColumn,

@@ -68,6 +68,7 @@ with open(manifest_path) as manifest_file:
 
 #Git repository Information
 datasource_path = files_path+config['git']['repository_path']+'/'+config['git']['datasource_folder_name']
+base_datasource_path = base_files_path+config['git']['repository_path']+'/'+config['git']['datasource_folder_name']
 
 report_path = files_path+config['git']['repository_path']+'/'+config['git']['report_folder_name']
 base_report_path = base_files_path+config['git']['repository_path']+'/'+config['git']['report_folder_name']
@@ -87,9 +88,11 @@ reports_file_list = []
 #-----------------------------------------------------------------------------------------#
 
 print "\nChecking the availability of DataSource .."
-
+main_datasource_path=datasource_path
 if not os.path.isfile(datasource_path+'/'+manifest['jasper']['datasource']+'.xml'):
-    raise Exception("No Such Datasource : "+manifest['jasper']['datasource'])
+    if not os.path.isfile(base_datasource_path+'/'+manifest['jasper']['datasource']+'.xml'):
+        raise Exception("No Such Datasource : "+manifest['jasper']['datasource'])
+    else: main_datasource_path=base_datasource_path
 
 print "\n- Ok -"
 
@@ -206,7 +209,7 @@ import query_upload as qu
 #-------------------------------- Uploading DataSource -----------------------------------#
 
 print '\nDeploying DataSource...'
-file_path = datasource_path+'/'+manifest['jasper']['datasource']+'.xml'
+file_path = main_datasource_path+'/'+manifest['jasper']['datasource']+'.xml'
 datasource_deploy_path = repository_path + '/DataSource/' + manifest['jasper']['datasource']
 dbName = dsu.report_upload(datasource_deploy_path,file_path,jasper_url,jasper_username,jasper_password,redshift_connectionURL,env_connectionUser,env_connectionPassword)
 print "\n- "+ dbName

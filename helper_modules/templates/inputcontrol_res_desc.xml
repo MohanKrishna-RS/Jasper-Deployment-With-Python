@@ -19,7 +19,7 @@
 		<value><![CDATA[false]]></value>
 	</resourceProperty>
 	<resourceProperty name="PROP_INPUTCONTROL_IS_MANDATORY">
-		<value><![CDATA[false]]></value>
+		<value><![CDATA[{{mandatory}}]]></value>
 	</resourceProperty>
 	<resourceProperty name="PROP_INPUTCONTROL_IS_READONLY">
 		<value><![CDATA[false]]></value>

@@ -1,5 +1,4 @@
 # Jasper Deployment
----
 Jasper Reports are being developed in jaspersoft server or iReports (deployed into server through publishing through the tool).
 
 In case of migrating the reports to another jasper server, a deployment is followed.
@@ -33,7 +32,7 @@ The format of the manifest file to be as follows:
 Jinja2 is one of the most used template engines for Python, widely used and secure with the optional sandboxed template execution environment. 
 
 Run the command to install jinja2 into your machine :
-```sh
+```ssh
 sudo pip install jinja2
 ```
 

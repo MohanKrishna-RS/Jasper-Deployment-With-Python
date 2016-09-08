@@ -121,3 +121,24 @@ cd $HOME/$DB_NAME/$GIT_REPO/deployment
 # Running deployment script
 python ReportDeployment.py
 ```
+> ***Note:***
+This script also works based on the custom and standard report classification. To achieve this, the directory structure will be as below. `base/jasper/deployment` folder contains standard reports and `jasper/deployment` contains custom reports. **If you dont split your reports into standard and custom, then please neglect this Note**
+```
+./
+|
+|__ jasper
+        |__deployment
+                |__ Datasource
+                |__ Query
+                |__ Inputcontrol
+                |__ Report
+|__ base
+        |__jasper
+                |__deployment
+                    |__ Datasource
+                        ..
+                    |__ Report
+        |__deployment
+                |__ ReportDeployment.py
+                |__ ...
+```
